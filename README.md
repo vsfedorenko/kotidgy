@@ -150,6 +150,30 @@ kotidgy {
 }
 ``` 
 
+## Kotidgy DSL 
+
+Project definition:
+
+- `kotidgy` / `project` — kotidgy project definition wrappers
+  - `templates` — templates definitions wrapper
+    - `t` / `template` — template definition
+
+Template definition:
+- Every template must start from the `+` sign. 
+  It is mandatory cast to the Kotlin [Type-Safe Builders DSL](http://kotlinlang.org/docs/reference/type-safe-builders.html#type-safe-builders).
+- Template operators:
+  - unary `+` — start of the template
+  - binary `+` — concatenation 
+  - `/` — alternative operator
+  - `all` and `any` - collection/iterable wrapper operators.
+    - `any` — converts collection items to alternatives (like it is written using `/` operator: e.g. `item1 / item2 / ...`)
+    - `all` — concatenates collection items (e.g. `item1.toString() + item2.toString() + ...`)
+  - `f` or `lambda` or `call` — kotlin call operator. 
+    - All return types are accepted
+    - If `call` operator returns instance of `list` or `iterable` types 
+      then instance will be automatically converted to `any` collection
+    - `.toString()` is called for the object rendering.
+ 
 ## Why Kotlin ?
 1) Kotlin is a [mature](https://en.wiktionary.org/wiki/mature) programming language
 2) Kotlin is a type safe language
