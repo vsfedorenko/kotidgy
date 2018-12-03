@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test | Engine" type="JUnit" factoryName="JUnit" folderName="Tests" singleton="true">
+    <module name="kotidgy_test" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.meiblorn.kotidgy.engine.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="com.meiblorn.kotidgy.engine" />
+    <option name="MAIN_CLASS_NAME" value="com.meiblorn.kotidgy.engine.KotidgyEngineTest" />
+    <option name="METHOD_NAME" value="Test project generation" />
+    <option name="PARAMETERS" value="" />
+    <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

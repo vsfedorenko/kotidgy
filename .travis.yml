@@ -1,0 +1,45 @@
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - tree
+
+branches:
+  except:
+  - gh-pages
+
+language: java
+
+jdk:
+- oraclejdk8
+
+matrix:
+  include:
+  - os: linux
+    jdk: oraclejdk8
+  - os: linux
+    jdk: oraclejdk9
+  - os: linux
+    jdk: oraclejdk11
+  - os: linux
+    jdk: openjdk8
+  - os: linux
+    jdk: openjdk11
+
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+
+notifications:
+  slack:
+    rooms:
+    - secure: "X8/HNlocB0dWC8uR8+X15v3VAAUtQsXTBQ/lTJWoEaiTdjJHTzc5jd0wZsH3HlSbw5pclMb2Z8R5vL6q8WiuTokfDFnk90C2TpRG/UyUg9oKRD57T6DuY62TW22ND4f+/mfp8f5w3X6qgWkA9zmWh2KHPVMiR+PUFbKYm4Q2RCRTZu/pLFVPBvEslpFDOvszu832kv38E/+RdPjC45DWwHNb36vVkj9MvuVUML0m2TvbT3oiO3sh57XFq/TewmY4v2E/kcYWQ34S/G0SrlyGZSPk17x8TteHBLWOgLS67dSvUHdb6bJmTWnVk+yjToN0xZLcGCT61jYRo1lmnsGss4fO3TP6v0LyE0KNZXcaETpsPu5ihNzqv5eHs0VlRfJzGiMnPwBe4QMIIfY7PwSONu1cefqQrkV/6LOOCMM9ijLwOhhvdx3yGkDkYBL7KlKWpfadzkdQ+pGSt+TIrz2RfTYWqKEsr/qX8wMIkyk+MtRLA+Ah/yglnbX5Og2tzyp5pEUYyr3Ngh97OVwsMxXFBCbRXLV+L/8NLJFdcr5iS7lhPZam/Yo7l9UVcFrzJ3GNq++g/RGzd58c9YqlUgeRvKf0B7hOX9Nk1eYTTK2s7m7mPBu4JO3d2ggVZWhmNgkY+rqztsY8e4SMUB8NxsuQ55s7cVMruuAjK7hsz4QN2wY="
+    on_success: always
+    on_failure: always
+    on_pull_requests: true
