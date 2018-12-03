@@ -160,13 +160,13 @@ project {
  
 ## Contributing
 
-You are welcome to contribute ! Just submit your PR and become a part of Boltun community!
+You are welcome to contribute ! Just submit your PR and become a part of Kotidgy community!
 
 Please read [contributing.md](contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org) for versioning. For the versions available, see the [tags on this repository](https://github.com/meiblorn/boltun/tags). 
+We use [SemVer](http://semver.org) for versioning. For the versions available, see the [tags on this repository](https://github.com/meiblorn/kotidgy/tags). 
 
 ## Authors
 
