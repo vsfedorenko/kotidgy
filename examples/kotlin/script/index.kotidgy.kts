@@ -1,6 +1,6 @@
 import com.meiblorn.kotidgy.dsl.*
 
-project {
+kotidgy {
     templates {
         t { +"Hello" }
         t { +"Hi" / "Aloha" + ", man !" }

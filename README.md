@@ -6,11 +6,13 @@ is an index-based text data generator written in [Kotlin](http://kotlinlang.org)
 
 Write **this**
 ```kotlin
-templates {
-      t { +"Hello" }
-      t { +"Hi" / "Aloha" + ", man !" }
-      t { +f { any { 2..100 } } + " apples " + "on the " + "plate" / "table" }
-      t { +f { all { 2..3 } } + " apples " + "on the " + "plate" / "table" }
+kotidgy {
+    templates {
+          t { +"Hello" }
+          t { +"Hi" / "Aloha" + ", man !" }
+          t { +f { any { 2..100 } } + " apples " + "on the " + "plate" / "table" }
+          t { +f { all { 2..3 } } + " apples " + "on the " + "plate" / "table" }
+    }
 }
 ```
 Get **that**
@@ -83,7 +85,7 @@ Kotlin example:
 ```kotlin
 val engine = KotidgyEngine()
 
-val project = project {
+val project = kotidgy {
   templates {
       t { +"Hello" }
       t { +"Hi" / "Aloha" }
@@ -140,7 +142,7 @@ java -jar <%path_to%>/kotidgy.jar <%path_to%>/examples/kotlin/script/index.kotid
 
 import com.meiblorn.kotidgy.dsl.*
 
-project {
+kotidgy {
     templates {
         t { +"hi" }
         t { +"hello" / "aloha" }
