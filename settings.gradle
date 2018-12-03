@@ -1,2 +1,4 @@
 rootProject.name = 'kotidgy'
 
+enableFeaturePreview('STABLE_PUBLISHING')
+

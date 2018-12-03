@@ -39,7 +39,15 @@ cache:
 notifications:
   slack:
     rooms:
-    - secure: "X8/HNlocB0dWC8uR8+X15v3VAAUtQsXTBQ/lTJWoEaiTdjJHTzc5jd0wZsH3HlSbw5pclMb2Z8R5vL6q8WiuTokfDFnk90C2TpRG/UyUg9oKRD57T6DuY62TW22ND4f+/mfp8f5w3X6qgWkA9zmWh2KHPVMiR+PUFbKYm4Q2RCRTZu/pLFVPBvEslpFDOvszu832kv38E/+RdPjC45DWwHNb36vVkj9MvuVUML0m2TvbT3oiO3sh57XFq/TewmY4v2E/kcYWQ34S/G0SrlyGZSPk17x8TteHBLWOgLS67dSvUHdb6bJmTWnVk+yjToN0xZLcGCT61jYRo1lmnsGss4fO3TP6v0LyE0KNZXcaETpsPu5ihNzqv5eHs0VlRfJzGiMnPwBe4QMIIfY7PwSONu1cefqQrkV/6LOOCMM9ijLwOhhvdx3yGkDkYBL7KlKWpfadzkdQ+pGSt+TIrz2RfTYWqKEsr/qX8wMIkyk+MtRLA+Ah/yglnbX5Og2tzyp5pEUYyr3Ngh97OVwsMxXFBCbRXLV+L/8NLJFdcr5iS7lhPZam/Yo7l9UVcFrzJ3GNq++g/RGzd58c9YqlUgeRvKf0B7hOX9Nk1eYTTK2s7m7mPBu4JO3d2ggVZWhmNgkY+rqztsY8e4SMUB8NxsuQ55s7cVMruuAjK7hsz4QN2wY="
+      secure: LKXvikO3XlnuUw5049VhO7zmQPg3SIXt8Jc2Q8GL6yTt8sh9ORhtwn9JTv8f9gnFJn8iEGSaKpotLrjIMaQKeZHWR6GgQ1jdlNo0TY6npzzzO1wFn5bxVEeZ2I+GRX5r0gsLp1bv95ra9eTfcjEgn7q/JDKiu0Z5ycXDoocjU2si22xx9wZQMztn44FLQFYiVwtvCMKmiRVpDXehfb094kVFPE4hKankpMjrTtKm4UpneVOBEKS/AUYH+Fo0n03MNip9p4hDnrryHclkR2nwofIbGRugfOWjYkgXKwuA3EZ3DSGX+Al5y872oVQNvIehD3VM9CcF5BSc/S0+CPulGye70OTeHWWwQVSVEfZPX37pbE9sz6Il8n40VMpSq3UR3J2hYGlIJmhzaiwExxdLmqemhpP5bINtZOEKYaf2PNs+Lj8IHs8p9NEDJiEUqC6TUtxJUPdZyGHiPJxSpWiwYFaUB2hODLc5+jtBHdtGorXs9RWA/6NC2+HDYyzsAjs37y1B9uPV2hj9rmUi0UEtf92OQXZ8+ISjPdHf5djMU9b0dFcwaxnSjWLElOe9IIiWGd0pY6UT1lALDdA/QpbEuqwwNwf6JEZz2kFjKZuacVrZdcqSYgtn5A9XXS6qtgCSQKHYdlArAnJDgz7j7A6CdGRZqcMViC/DBuxuLMKrQLY=
     on_success: always
     on_failure: always
     on_pull_requests: true
+
+deploy:
+  provider: script
+  script: "./gradlew bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayApiKey=$BINTRAY_KEY
+    -PbintrayRepo=$BINTRAY_REPO"
+  on:
+    branch: master
+    tags: true
