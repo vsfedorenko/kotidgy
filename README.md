@@ -1,7 +1,7 @@
 Kotidgy
 ===
 
-Kotidgy aka "Kotlin Text Indexed Data Generator" 
+Kotidgy _aka_ "**Ko**tlin **T**ext **I**ndexed **D**ata **G**enerator" 
 is an index-based text data generator written in [Kotlin](http://kotlinlang.org).
 
 Write **this**
