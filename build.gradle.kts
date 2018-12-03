@@ -42,7 +42,7 @@ tasks.withType<KotlinCompile> {
 }
 
 val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
+    compileKotlin.kotlinOptions {
 }
 
 tasks.withType<Test> {
