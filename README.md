@@ -150,6 +150,14 @@ kotidgy {
 }
 ``` 
 
+## Use it as a docker container
+```bash
+docker run \
+    -v $(pwd)/examples/kotlin/script:/data \ 
+    meiblorn/kotidgy \
+    /data/index.kotidgy.kts
+```
+
 ## Kotidgy DSL 
 
 Project definition:
