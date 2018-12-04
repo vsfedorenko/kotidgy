@@ -46,7 +46,7 @@ Add dependencies (you can also add other modules that you need):
 <dependency>
     <groupId>com.meiblorn</groupId>
     <artifactId>kotidgy</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0.RELEASE</version>
 </dependency>
 ```
 
@@ -54,9 +54,10 @@ Add dependencies (you can also add other modules that you need):
 
 Add dependencies (you can also add other modules that you need):
 
+Groovy DSL
 ```groovy
 dependencies {
-    implementation 'com:meiblorn:kotidgy:1.0.0'
+    implementation 'com:meiblorn:kotidgy:1.0.0.RELEASE'
 }
 ```
 
@@ -74,7 +75,7 @@ Add dependencies (you can also add other modules that you need):
 
 ```groovy
 dependencies {
-    implementation("com.meiblorn:kotidgy:1.0.0")
+    implementation("com.meiblorn:kotidgy:1.0.0.RELEASE")
 }
 ```
 
@@ -139,7 +140,7 @@ java -jar <%path_to%>/kotidgy.jar <%path_to%>/examples/kotlin/script/index.kotid
 #!/usr/bin/env kscript
 
 // Declare dependencies
-@file:DependsOn("com.meiblorn:kotidgy:1.0.0")
+@file:DependsOn("com.meiblorn:kotidgy:1.0.0.RELEASE")
 
 import com.meiblorn.kotidgy.dsl.*
 
