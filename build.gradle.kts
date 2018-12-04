@@ -38,7 +38,7 @@ apply(plugin = "org.jetbrains.dokka")
 defaultTasks = listOf("build")
 
 group = "com.meiblorn"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0.RELEASE"
 
 repositories {
     google()
