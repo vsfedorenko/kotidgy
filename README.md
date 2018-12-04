@@ -1,5 +1,6 @@
 Kotidgy
 ===
+[![Build Status](https://travis-ci.org/meiblorn/kotidgy.svg?branch=master)](https://travis-ci.org/meiblorn/kotidgy)
 
 Kotidgy _aka_ "**Ko**tlin **T**ext **I**ndexed **D**ata **G**enerator" 
 is an index-based text data generator written in [Kotlin](http://kotlinlang.org).
