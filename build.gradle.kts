@@ -8,6 +8,7 @@ import com.jfrog.bintray.gradle.BintrayExtension.PackageConfig
 import com.jfrog.bintray.gradle.BintrayExtension.VersionConfig
 import com.jfrog.bintray.gradle.tasks.BintrayPublishTask
 import com.jfrog.bintray.gradle.tasks.BintrayUploadTask
+import org.gradle.api.internal.java.JavaLibrary
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -18,7 +19,7 @@ val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPlu
 fun findProperty(s: String) = project.findProperty(s) as String?
 
 plugins {
-    java
+    `java-library`
     application
     `maven-publish`
     idea
@@ -66,6 +67,25 @@ dependencies {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks {
+    val sourcesJar by creating(Jar::class) {
+        dependsOn(JavaPlugin.CLASSES_TASK_NAME)
+        classifier = "sources"
+        from(java.sourceSets.getByName("main").allSource)
+    }
+
+    val javadocJar by creating(Jar::class) {
+        dependsOn(JavaPlugin.JAVADOC_TASK_NAME)
+        classifier = "javadoc"
+        from(tasks["javadoc"])
+    }
+
+    artifacts {
+        add("archives", sourcesJar)
+        add("archives", javadocJar)
+    }
 }
 
 application {
@@ -193,6 +213,8 @@ publishing {
         (project.name)(MavenPublication::class) {
             artifactId = project.name
             artifact(tasks.getByName("shadowJar"))
+            artifact(tasks.getByName("sourcesJar"))
+            artifact(tasks.getByName("javadocJar"))
 
             pom.withXml {
                 asNode().appendNode("dependencies").let { depNode ->
